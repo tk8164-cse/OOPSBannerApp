@@ -1,5 +1,0 @@
-mkdir folder_name
-touch folder_name/.src
-git add folder_name
-git commit -m "Add new folder_name directory"
-git push origin main
