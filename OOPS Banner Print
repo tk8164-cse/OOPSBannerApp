@@ -1,12 +1,12 @@
 public class BannerDisplay {
     public static void main(String[] args) {
         // Extending UC1 with the OOPS banner
-        System.out.println("   ***   " + " " + "   ****  ");
-        System.out.println(" **   ** " + " " + " **      ");
-        System.out.println("**     **" + " " + "**       ");
-        System.out.println("**     **" + " " + "  *****  ");
-        System.out.println("**     **" + " " + "      ** ");
-        System.out.println(" **   ** " + " " + " **   ** ");
-        System.out.println("   ***   " + " " + "  *****  "); 
+        System.out.println("   ***   " + "   ***   " + "******" + "   ****  ");
+        System.out.println(" **   ** " + " **   ** " + "**   *" + " **      ");
+        System.out.println("**     **" + "**     **" + "**   *" + "**       ");
+        System.out.println("**     **" + "**     **" + "******" + "  *****  ");
+        System.out.println("**     **" + "**     **" + "**    " + "      ** ");
+        System.out.println(" **   ** " + " **   ** " + "**    " + " **   ** ");
+        System.out.println("   ***   " + "   ***   " + "**    " + "  *****  "); 
     }
 }
