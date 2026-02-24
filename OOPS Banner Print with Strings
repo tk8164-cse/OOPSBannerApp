@@ -1,12 +1,19 @@
-public class BannerDisplaywithString {
+public class OopsBanner {
     public static void main(String[] args) {
-        System.out.println String.join("   ***   " + "   ***   " + "******" + "   ****  "));
-        System.out.println String.join(" **   ** " + " **   ** " + "**   *" + " **      "));
-        System.out.println String.join("**     **" + "**     **" + "**   *" + "**       "));
-        System.out.println String.join("**     **" + "**     **" + "**   *" + "**       "));
-        System.out.println String.join("**     **" + "**     **" + "******" + "  *****  "));
-        System.out.println String.join("**     **" + "**     **" + "**    " + "      ** "));
-        System.out.println String.join(" **   ** " + " **   ** " + "**    " + " **   ** "));
-        System.out.println String.join("   ***   " + "   ***   " + "**    " + "  *****  ")); 
+        // 1. Define the banner as a String array
+        // Each element represents one horizontal line of the "OOPS" text
+        String[] banner = {
+            "  ***    ***   ****   **** ",
+            " *   *  *   *  *   *  *    ",
+            " *   *  *   *  ****    *** ",
+            " *   *  *   *  *          *",
+            "  ***    ***   *      **** "
+        };
+
+        // 2. Use a loop to iterate through the array
+        // 'row' takes the value of each String in the array one by one
+        for (String row : banner) {
+            System.out.println(row);
+        }
     }
 }
