@@ -3,7 +3,7 @@ public class OOPSBannerApp {
     // Method to generate the pattern for the letter 'O'
     public static String[] getOPattern() {
         return new String[] {
-            "  *** ",
+            "  ***  ",
             "**   **",
             "**   **",
             "**   **",
@@ -16,13 +16,13 @@ public class OOPSBannerApp {
     // Method to generate the pattern for the letter 'P'
     public static String[] getPPattern() {
         return new String[] {
-            "******",
-            "**  ** ",
-            "**  ** ",
-            "****** ",
-            "**     ",
-            "**     ",
-            "**     "
+            " ****** ",
+            " **  ** ",
+            " **  ** ",
+            " ****** ",
+            " **     ",
+            " **     ",
+            " **     "
         };
     }
 
