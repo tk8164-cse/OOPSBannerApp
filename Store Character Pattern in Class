@@ -1,0 +1,95 @@
+/**
+ * OOPSBannerApp UC7 - Store Character Pattern in a Class
+ * This application retrieves and displays the "OOPS" banner using 
+ * encapsulated character-to-pattern mappings.
+ */
+public class OOPSBannerApp {
+
+    /**
+     * CharacterPatternMap - Inner class for storing character-to-pattern mappings
+     */
+    static class CharacterPatternMap {
+        private Character character;
+        private String[] pattern;
+
+        public CharacterPatternMap(Character character, String[] pattern) {
+            this.character = character;
+            this.pattern = pattern;
+        }
+
+        public Character getCharacter() {
+            return character;
+        }
+
+        public String[] getPattern() {
+            return pattern;
+        }
+    }
+
+    /**
+     * Initializes CharacterPatternMap array for characters 'O', 'P', 'S' and space.
+     * Each character is represented by a 7-line ASCII art pattern.
+     */
+    public static CharacterPatternMap[] createCharacterPatternMaps() {
+        CharacterPatternMap[] charMaps = new CharacterPatternMap[4];
+
+        charMaps[0] = new CharacterPatternMap('O', new String[]{
+            "  *** ", " * * ", "* *", "* *", "* *", " * * ", "  *** "
+        });
+        charMaps[1] = new CharacterPatternMap('P', new String[]{
+            "****** ", "* *", "* *", "****** ", "* ", "* ", "* "
+        });
+        charMaps[2] = new CharacterPatternMap('S', new String[]{
+            " ***** ", "* ", "* ", " **** ", "     * ", "     * ", " ***** "
+        });
+        charMaps[3] = new CharacterPatternMap(' ', new String[]{
+            "       ", "       ", "       ", "       ", "       ", "       ", "       "
+        });
+
+        return charMaps;
+    }
+
+    /**
+     * Searches through the character pattern maps to find a matching character.
+     * If not found, it recursively returns the pattern for the space character.
+     */
+    public static String[] getCharacterPattern(char ch, CharacterPatternMap[] charMaps) {
+        for (CharacterPatternMap map : charMaps) {
+            if (map.getCharacter() == Character.toUpperCase(ch)) {
+                return map.getPattern();
+            }
+        }
+        // Fallback to space if character not found
+        return getCharacterPattern(' ', charMaps);
+    }
+
+    /**
+     * Prints a message horizontally by combining individual character patterns line by line.
+     */
+    public static void printMessage(String message, CharacterPatternMap[] charMaps) {
+        int patternHeight = 7; // Based on the requirement of 7-line ASCII art
+
+        for (int i = 0; i < patternHeight; i++) {
+            StringBuilder lineOutput = new StringBuilder();
+            for (char ch : message.toCharArray()) {
+                String[] pattern = getCharacterPattern(ch, charMaps);
+                lineOutput.append(pattern[i]).append("  "); // Adding spacing between characters
+            }
+            System.out.println(lineOutput);
+        }
+    }
+
+    /**
+     * Main method - Entry point for the banner display application
+     */
+    public static void main(String[] args) {
+        // Create CharacterPatternMap array
+        CharacterPatternMap[] charMaps = createCharacterPatternMaps();
+
+        // Define the message to be displayed
+        String message = "OOPS";
+
+        // Print the banner message
+        printMessage(message, charMaps);
+    }
+}
