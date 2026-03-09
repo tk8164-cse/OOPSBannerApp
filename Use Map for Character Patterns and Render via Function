@@ -1,0 +1,87 @@
+import java.util.HashMap;
+
+/**
+ * OOPSBannerApp - Use Map for Character Patterns and Render via Function
+ * * This application retrieves and displays the "OOPS" banner using a HashMap
+ * to manage character patterns in a modular and flexible manner.
+ * * @author Developer
+ * @version 8.0
+ */
+public class OOPSBannerApp {
+
+    public static void main(String[] args) {
+        // 1. Initialize the character map
+        HashMap<Character, String[]> charMap = createCharacterMap();
+        
+        // 2. Define the message to display
+        String message = "OOPS";
+        
+        // 3. Render the banner
+        displayBanner(message, charMap);
+    }
+
+    /**
+     * Creates a HashMap containing ASCII art patterns for supported characters.
+     * Each String array represents the lines of the character's pattern.
+     */
+    public static HashMap<Character, String[]> createCharacterMap() {
+        HashMap<Character, String[]> charMap = new HashMap<>();
+
+        // ASCII pattern for 'O'
+        charMap.put('O', new String[] {
+            "  *** ",
+            " * * ",
+            " * * ",
+            " * * ",
+            "  *** "
+        });
+
+        // ASCII pattern for 'P'
+        charMap.put('P', new String[] {
+            " **** ",
+            " * * ",
+            " **** ",
+            " * ",
+            " * "
+        });
+
+        // ASCII pattern for 'S'
+        charMap.put('S', new String[] {
+            "  **** ",
+            " * ",
+            "  *** ",
+            "     * ",
+            " **** "
+        });
+
+        return charMap;
+    }
+
+    /**
+     * Displays a banner message using the provided character map.
+     * It builds the banner horizontally line by line.
+     */
+    public static void displayBanner(String message, HashMap<Character, String[]> charMap) {
+        // Handle empty message case
+        if (message == null || message.isEmpty()) return;
+
+        // Get pattern height from the first character ('O')
+        // We assume all patterns have the same height
+        int patternHeight = charMap.get('O').length;
+
+        // Loop through each line (row) of the ASCII art
+        for (int line = 0; line < patternHeight; line++) {
+            StringBuilder sb = new StringBuilder();
+
+            // For each character in the message, append the corresponding line
+            for (char ch : message.toUpperCase().toCharArray()) {
+                if (charMap.containsKey(ch)) {
+                    String[] pattern = charMap.get(ch);
+                    sb.append(pattern[line]).append("  "); // 2 spaces between characters
+                }
+            }
+            // Print the completed horizontal line
+            System.out.println(sb.toString());
+        }
+    }
+}
